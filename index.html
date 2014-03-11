@@ -22,6 +22,21 @@
             };
             var music = document.querySelector('#music');
             music.volume = .5;
+            music.src = "http://storage.live.com/items/4AC92A8437AC0C18%21337?filename=music.mp3";
+
+            music.addEventListener("loadstart",  function(){
+                currentTimeNode.innerText = "Started loading...";
+            });
+            music.addEventListener("canplaythrough", function(){
+                setInterval(function(){
+                    currentTimeNode.innerText = music.currentTime;
+                    if(music.currentTime >= 103.865 && loop){
+                        music.currentTime = 6.666;
+                    }
+                }, 30);
+                music.play();
+            });
+            music.load();
             //music.currentTime += 100;
             /*
             music.addEventListener("timeupdate", function(){
@@ -31,20 +46,13 @@
                 }
             }, false);
             */
-            setInterval(function(){
-                currentTimeNode.innerText = music.currentTime;
-                if(music.currentTime >= 103.865 && loop){
-                    music.currentTime = 6.666;
-                }
-            }, 30);
-            music.play();
         };
     </script>
 </head>
 <body>
     <div id="currentTime">
     </div>
-    <audio id="music" src="new-music.mp3" controls></audio>
+    <audio id="music" controls></audio>
     <input type="button" value="loop" id="loop">
 </body>
 </html>
