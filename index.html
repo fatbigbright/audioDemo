@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>music demo</title>
+    <style>
+        audio{
+            width: 400px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var currentTimeNode = document.querySelector('#currentTime');
+            currentTimeNode.innerText = "0.000000";
+            
+            var loopButton = document.querySelector('#loop');
+            var loop = true;
+            
+            loopButton.onclick = function(){
+                loop = !loop;
+                loopButton.value = loop ? "loop" : "no loop";
+            };
+            var music = document.querySelector('#music');
+            music.volume = .5;
+            //music.currentTime += 100;
+            /*
+            music.addEventListener("timeupdate", function(){
+                currentTimeNode.innerText = music.currentTime;
+                if(music.currentTime >= 103.865 && loop){
+                    music.currentTime = 6.666;
+                }
+            }, false);
+            */
+            setInterval(function(){
+                currentTimeNode.innerText = music.currentTime;
+                if(music.currentTime >= 103.865 && loop){
+                    music.currentTime = 6.666;
+                }
+            }, 30);
+            music.play();
+        };
+    </script>
+</head>
+<body>
+    <div id="currentTime">
+    </div>
+    <audio id="music" src="new-music.mp3" controls></audio>
+    <input type="button" value="loop" id="loop">
+</body>
+</html>
