@@ -22,19 +22,19 @@
             };
             var music = document.querySelector('#music');
             music.volume = .5;
-            //music.currentTime += 100;
+            music.currentTime += 100;
             /*
             music.addEventListener("timeupdate", function(){
                 currentTimeNode.innerText = music.currentTime;
-                if(music.currentTime >= 103.865 && loop){
-                    music.currentTime = 6.666;
+                if(music.currentTime >= 104.139 && loop){
+                    music.currentTime = 6.842;
                 }
             }, false);
             */
             setInterval(function(){
                 currentTimeNode.innerText = music.currentTime;
-                if(music.currentTime >= 103.865 && loop){
-                    music.currentTime = 6.666;
+                if(music.currentTime >= 104.039 && loop){
+                    music.currentTime = 6.842;
                 }
             }, 30);
             music.play();
@@ -44,7 +44,7 @@
 <body>
     <div id="currentTime">
     </div>
-    <audio id="music" src="new-music.mp3" controls></audio>
+    <audio id="music" src="music.mp3" controls></audio>
     <input type="button" value="loop" id="loop">
 </body>
 </html>
